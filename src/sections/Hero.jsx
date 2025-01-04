@@ -17,8 +17,8 @@ export const Hero = () => (
       <div className="text-center">
         <FadeIn>
           {/* Text container with sufficient padding and line-height */}
-          <div className="min-h-[350px] sm:min-h-[280px] md:min-h-[320px] flex items-center justify-center">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 leading-[1.3]">
+          <div className="min-h-[250px] sm:min-h-[280px] md:min-h-[320px] flex items-center justify-center">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 leading-[1.3]">
               Transform Your Digital Presence{" "}
               <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent inline-block">
                 with{" "}
