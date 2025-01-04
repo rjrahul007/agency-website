@@ -17,7 +17,12 @@ export const Footer = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <FadeIn>
-          <div>
+          <div className="text-center">
+            <img
+              src="/agency-websitelogo2.png"
+              alt="WebCraft Logo"
+              className="w-24 h-24 mx-auto mb-4 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+            />
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               WebCraft
             </h3>
