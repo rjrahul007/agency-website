@@ -1,5 +1,6 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
+import { Tooltip } from "react-tooltip";
 
 const PortfolioCard = ({ title, description, imageUrl, tags, link }) => {
   return (
@@ -16,13 +17,19 @@ const PortfolioCard = ({ title, description, imageUrl, tags, link }) => {
         <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
         <p className="mt-2 text-gray-600">{description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-indigo-50 px-3 py-1 text-sm text-indigo-600"
+          {tags.map((tag, index) => (
+            <div
+              key={index}
+              data-tooltip-id={tag.name}
+              data-tooltip-content={tag.name}
+              className="flex items-center justify-center p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors duration-300"
             >
-              {tag}
-            </span>
+              {/* Set the icon's color to its original color */}
+              {React.cloneElement(tag.icon, {
+                className: `w-5 h-5 ${tag.color}`,
+              })}
+              <Tooltip id={tag.name} />
+            </div>
           ))}
         </div>
         <a
@@ -37,4 +44,5 @@ const PortfolioCard = ({ title, description, imageUrl, tags, link }) => {
     </div>
   );
 };
+
 export default PortfolioCard;

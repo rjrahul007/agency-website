@@ -8,6 +8,7 @@ import { Portfolio } from "./sections/Portfolio";
 import { Testimonials } from "./sections/Testimonials";
 import { Footer } from "./sections/Footer";
 import { Contact } from "./sections/Contact";
+import StatsAndLogos from "./sections/StatsAndLogos";
 // Import other sections
 
 const App = () => {
@@ -26,22 +27,15 @@ const App = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/90 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
-      >
-        {" "}
-        <Navbar />
-        {/* Navigation content */}
-      </nav>
+
+      <Navbar />
+      {/* Navigation content */}
 
       <Hero />
       <Services />
       <Portfolio />
       <Testimonials />
+      <StatsAndLogos />
       <Contact />
       <Footer />
       {/* Other sections */}

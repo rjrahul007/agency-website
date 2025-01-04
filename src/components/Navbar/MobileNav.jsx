@@ -1,25 +1,31 @@
 import React from "react";
 import { navigationLinks } from "./NavConfig";
+import { NavLink } from "../NavLink";
+import { X } from "lucide-react";
 
-export const MobileNav = ({ isOpen }) => (
+export const MobileNav = ({ isOpen, onLinkClick }) => (
   <div
-    className={`md:hidden transition-all duration-300 transform ${
-      isOpen
-        ? "opacity-100 translate-y-0"
-        : "opacity-0 -translate-y-full pointer-events-none"
+    className={`fixed inset-0 bg-white z-50 transform transition-transform duration-300 ease-in-out ${
+      isOpen ? "translate-x-0" : "-translate-x-full"
     }`}
   >
-    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+    {/* Close Button */}
+    <button
+      onClick={onLinkClick}
+      className="absolute top-4 right-4 p-2 rounded-md text-gray-600 hover:text-gray-900 transition-colors duration-300"
+      aria-label="Close navigation menu"
+    >
+      <X className="h-6 w-6" />
+    </button>
+
+    {/* Navigation Links */}
+    <div className="flex flex-col items-center justify-center h-full space-y-6 overflow-y-auto">
       {navigationLinks.map((link) => (
-        <a
-          key={link.href}
-          href={link.href}
-          className="block px-3 py-2 text-gray-600 hover:text-blue-600 transition-colors duration-300"
-        >
+        <NavLink key={link.id} href={link.href} onClick={onLinkClick}>
           {link.label}
-        </a>
+        </NavLink>
       ))}
-      <button className="w-full mt-4 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
+      <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full">
         Get Started
       </button>
     </div>

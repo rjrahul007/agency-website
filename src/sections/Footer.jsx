@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { FadeIn } from "../components/FadeIn";
 import { services } from "../data/services";
+import { FaInstagram } from "react-icons/fa";
 
 export const Footer = () => (
   <footer className="bg-gray-900 text-white py-12">
@@ -46,9 +47,18 @@ export const Footer = () => (
           <div>
             <h4 className="font-semibold mb-4 text-white">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li className="flex items-center hover:text-blue-400 transition-colors duration-300">
-                <Phone size={16} className="mr-2" />
-                +1 (555) 123-4567
+              <li className="flex flex-col space-y-2">
+                {/* First Phone Number */}
+                <div className="flex items-center hover:text-blue-400 transition-colors duration-300">
+                  <Phone size={16} className="mr-2" />
+                  <a href="tel:+918608201670">(+91) 8608201670</a>
+                </div>
+
+                {/* Second Phone Number */}
+                <div className="flex items-center hover:text-blue-400 transition-colors duration-300">
+                  <Phone size={16} className="mr-2" />
+                  <a href="tel:+918798728661">(+91) 8798728661</a>
+                </div>
               </li>
               <li className="flex items-center hover:text-blue-400 transition-colors duration-300">
                 <Mail size={16} className="mr-2" />
@@ -56,7 +66,7 @@ export const Footer = () => (
               </li>
               <li className="flex items-center hover:text-blue-400 transition-colors duration-300">
                 <MapPin size={16} className="mr-2" />
-                123 Tech Street, Silicon Valley
+                Midland, Dimapur Nagaland
               </li>
             </ul>
           </div>
@@ -67,13 +77,13 @@ export const Footer = () => (
             <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
             <div className="flex space-x-4">
               {[
-                { Icon: Github, href: "#" },
-                { Icon: Linkedin, href: "#" },
-                { Icon: Twitter, href: "#" },
+                { Icon: Github, href: "https://github.com/rjrahul007" },
+                { Icon: FaInstagram, href: "#" },
               ].map(({ Icon, href }, index) => (
                 <a
                   key={index}
                   href={href}
+                  target="_blank"
                   className="text-gray-400 hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
                 >
                   <Icon size={20} />

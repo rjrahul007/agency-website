@@ -8,6 +8,15 @@ export const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Debounce function for scroll events
+  const debounce = (func, delay) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => func(...args), delay);
+    };
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -23,7 +32,10 @@ export const Navbar = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top >= 0 && rect.top <= window.innerHeight / 2;
+          return (
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2
+          );
         }
         return false;
       });
@@ -33,39 +45,49 @@ export const Navbar = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const debouncedHandleScroll = debounce(handleScroll, 100);
+    window.addEventListener("scroll", debouncedHandleScroll);
+
+    return () => window.removeEventListener("scroll", debouncedHandleScroll);
   }, []);
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false); // Close the mobile menu
+  };
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
+    <header
+      className={`fixed w-full z-50 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      } transition-all duration-300`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex-shrink-0 flex items-center">
-            <Code2 className="h-8 w-8 text-indigo-600" />
-            <span className="ml-2 text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-              WebCraft
-            </span>
-          </div>
-
-          <DesktopNav activeSection={activeSection} />
-
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-gray-600 hover:text-gray-900 transition-colors duration-300"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <Code2 className="h-8 w-8 text-blue-600" />
+          <span className="text-xl font-bold text-gray-800">WebCraft</span>
         </div>
+
+        {/* Desktop Navigation */}
+        <DesktopNav activeSection={activeSection} />
+
+        {/* Mobile Menu Toggle Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+          className="p-2 rounded-md text-gray-600 hover:text-gray-900 transition-colors duration-300 md:hidden"
+        >
+          {isMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </button>
       </div>
 
-      <MobileNav isOpen={isMenuOpen} />
-    </nav>
+      {/* Mobile Navigation Menu */}
+      <MobileNav isOpen={isMenuOpen} onLinkClick={handleLinkClick} />
+    </header>
   );
 };

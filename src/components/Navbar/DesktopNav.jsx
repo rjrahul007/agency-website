@@ -5,7 +5,11 @@ import { NavLink } from "../NavLink";
 export const DesktopNav = ({ activeSection }) => (
   <div className="hidden md:flex items-center space-x-4">
     {navigationLinks.map((link) => (
-      <NavLink key={link.href} href={link.href} activeSection={activeSection}>
+      <NavLink
+        key={link.href}
+        href={link.href}
+        isActive={activeSection === link.id}
+      >
         {link.label}
       </NavLink>
     ))}
