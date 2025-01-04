@@ -16,35 +16,40 @@ export const Hero = () => (
     <div className="max-w-7xl mx-auto">
       <div className="text-center">
         <FadeIn>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-8">
-            Transform Your Digital Presence{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent inline-block">
-              with{" "}
-              <TypeAnimation
-                sequence={[
-                  "Expert Web Solutions",
-                  2000,
-                  "E-commerce Website",
-                  2000,
-                  "Portfolio Website",
-                  2000,
-                  "Business Website",
-                  2000,
-                  "Landing Pages",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-                cursor={true}
-                style={{ display: "inline-block" }}
-                className="typed-cursor-gradient"
-              />
-            </span>
-          </h1>
+          {/* Text container with sufficient padding and line-height */}
+          <div className="min-h-[350px] sm:min-h-[280px] md:min-h-[320px] flex items-center justify-center">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 leading-[1.3]">
+              Transform Your Digital Presence{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent inline-block">
+                with{" "}
+                <TypeAnimation
+                  sequence={[
+                    "Expert Web Solutions",
+                    2000,
+                    "E-commerce Website",
+                    2000,
+                    "Portfolio Website",
+                    2000,
+                    "Business Website",
+                    2000,
+                    "Landing Pages ",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={40}
+                  repeat={Infinity}
+                  cursor={true}
+                  style={{ display: "inline-block" }}
+                  className="typed-cursor-gradient"
+                />
+                |
+              </span>
+            </h1>
+          </div>
         </FadeIn>
         <FadeIn delay={400}>
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          {/* Button section with sufficient margin */}
+          <div className="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <button
               aria-label="Chat on WhatsApp"
               className="px-8 py-4 bg-green-600 text-white rounded-md hover:bg-green-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
