@@ -25,7 +25,13 @@ export const MobileNav = ({ isOpen, onLinkClick }) => (
           {link.label}
         </NavLink>
       ))}
-      <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full">
+      <button
+        className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full"
+        onClick={() =>
+          (window.location.href =
+            "https://wa.me/8638201670?text=Hello%20I%20would%20like%20to%20build%20a%20website.")
+        }
+      >
         Get Started
       </button>
     </div>
