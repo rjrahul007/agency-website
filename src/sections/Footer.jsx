@@ -56,7 +56,7 @@ export const Footer = () => (
                 {/* First Phone Number */}
                 <div className="flex items-center hover:text-blue-400 transition-colors duration-300">
                   <Phone size={16} className="mr-2" />
-                  <a href="tel:+918608201670">(+91) 8608201670</a>
+                  <a href="tel:+918608201670">(+91) 8638201670</a>
                 </div>
 
                 {/* Second Phone Number */}
