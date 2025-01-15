@@ -58,9 +58,9 @@ export const Hero = () => (
                   "https://wa.me/8638201670?text=Hello%20I%20would%20like%20to%20build%20a%20website.")
               }
             >
-              <span className="flex items-center justify-center">
-                <FaWhatsapp className="mr-2 h-5 w-5" />
-                Chat on WhatsApp
+              <span className="flex items-center justify-center text-xl">
+                Chat on
+                <FaWhatsapp className="ml-2 h-10 w-10" />
               </span>
             </button>
             <button
