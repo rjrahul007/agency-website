@@ -6,11 +6,13 @@ const PortfolioCard = ({ title, description, imageUrl, tags, link }) => {
   return (
     <div className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
       <div className="aspect-w-16 aspect-h-9 relative">
-        <img
-          src={imageUrl}
-          alt={title}
-          className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
+        <a href={link}>
+          <img
+            src={imageUrl}
+            alt={title}
+            className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </a>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
       <div className="p-6">
