@@ -5,7 +5,7 @@ import { Tooltip } from "react-tooltip";
 const PortfolioCard = ({ title, description, imageUrl, tags, link }) => {
   return (
     <div className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
-      <a href={link}>
+      <a href={link} target="_blank">
         <div className="aspect-w-16 aspect-h-9 relative">
           <img
             src={imageUrl}
